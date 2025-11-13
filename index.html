@@ -14,39 +14,49 @@
       --glass: rgba(255,255,255,0.03);
     }
 
-    /* Page layout */
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial;
       background: linear-gradient(180deg,var(--bg) 0%, #041022 100%);
       color:var(--text);
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:center;
+      padding-top:40px;
     }
 
-    /* Container */
     .wrap{
       width:100%;
       max-width:980px;
       padding:36px;
       box-sizing:border-box;
+      text-align:center;
+    }
+
+    /* Logo placement */
+    .logo{
+      width:140px;
+      height:auto;
+      margin:0 auto 24px auto;
+      opacity:0.92;
     }
 
     h1{
       margin:0 0 18px 0;
-      font-size:22px;
-      letter-spacing:0.2px;
+      font-size:26px;
       color:var(--text);
-    }
-    p.lead{
-      margin:6px 0 28px 0;
-      color:var(--muted);
-      font-size:14px;
+      letter-spacing:0.3px;
     }
 
-    /* Grid for 4 items */
+    p.lead{
+      margin:6px 0 32px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* Grid */
     .grid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -54,133 +64,140 @@
     }
 
     @media (max-width:640px){
-      .grid{grid-template-columns: 1fr;}
+      .grid{grid-template-columns:1fr;}
     }
 
-    /* Card */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
       border-radius:12px;
       padding:18px;
-      box-shadow: 0 6px 18px rgba(2,6,12,0.5);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      box-shadow:0 6px 18px rgba(2,6,12,0.5);
+    }
+
+    .meta{
+      display:flex;
+      flex-direction:column;
+      text-align:left;
     }
 
     .title{
-      display:block;
       font-weight:600;
-      color:var(--text);
       font-size:16px;
       margin-bottom:4px;
+      color:var(--text);
     }
+
     .subtitle{
       font-size:13px;
       color:var(--muted);
     }
 
-    /* Download button */
     .btn{
-      --pad:12px 18px;
       background:linear-gradient(180deg,var(--accent), #f24100);
       color:white;
-      padding:var(--pad);
+      padding:12px 18px;
       border-radius:10px;
       text-decoration:none;
       font-weight:700;
       display:inline-flex;
       align-items:center;
       gap:10px;
-      border:0;
-      box-shadow: 0 6px 14px rgba(255,107,45,0.14);
-      transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
       white-space:nowrap;
+      box-shadow:0 6px 14px rgba(255,107,45,0.14);
+      transition:0.12s ease;
     }
-    .btn:active{transform:translateY(1px)}
-    .btn:hover{box-shadow: 0 10px 22px rgba(255,107,45,0.22); opacity:0.98}
 
-    /* Download icon (small) */
-    .btn svg{width:18px;height:18px;flex-shrink:0}
+    .btn:hover{
+      box-shadow:0 10px 22px rgba(255,107,45,0.22);
+      opacity:0.98;
+    }
 
-    /* layout for card left block */
-    .meta{
-      display:flex;
-      flex-direction:column;
+    .btn svg{
+      width:18px;
+      height:18px;
     }
 
   </style>
 </head>
 <body>
-  <div class="wrap" role="main" aria-labelledby="pageTitle">
-    <h1 id="pageTitle">Downloads</h1>
+  <div class="wrap">
+
+    <!-- Top Logo -->
+    <img src="assets/banner-light.png" class="logo" alt="FluxTV Logo">
+
+    <h1>Downloads</h1>
     <p class="lead">Tap any button to download the file.</p>
 
     <div class="grid">
+
       <!-- Item 1 -->
       <div class="card">
-        <div class="meta" aria-hidden="false">
+        <div class="meta">
           <span class="title">Launcher Manager</span>
           <span class="subtitle">Application File</span>
         </div>
-        <a class="btn" href="assets/LM-ATV-1.0.4.apk" download="LM-ATV-1.0.4.apk" aria-label="Download">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="btn" href="assets/LM-ATV-1.0.4.apk" download>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
             <rect x="4" y="17" width="16" height="3" rx="1.2" fill="white" opacity="0.12"/>
           </svg>
           Download
         </a>
       </div>
 
-      <div class="grid">
       <!-- Item 2 -->
       <div class="card">
-        <div class="meta" aria-hidden="false">
+        <div class="meta">
           <span class="title">Launcher Settings</span>
           <span class="subtitle">Settings File</span>
         </div>
-        <a class="btn" href="assets/projectivy-launcher-settings-v1.plbackup" download="projectivy-launcher-settings-v1.plbackup" aria-label="Download">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="btn" href="assets/projectivy-launcher-settings-v1.plbackup" download>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6"/>
             <rect x="4" y="17" width="16" height="3" rx="1.2" fill="white" opacity="0.12"/>
           </svg>
           Download
         </a>
       </div>
-      
-       <div class="grid">
+
       <!-- Item 3 -->
       <div class="card">
-        <div class="meta" aria-hidden="false">
+        <div class="meta">
           <span class="title">App Icon</span>
           <span class="subtitle">Image File</span>
         </div>
-        <a class="btn" href="assets/Icon.png" download="Icon.png" aria-label="Download">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="btn" href="assets/Icon.png" download>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12" stroke="white" stroke-width="1.6"/>
+            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6"/>
             <rect x="4" y="17" width="16" height="3" rx="1.2" fill="white" opacity="0.12"/>
           </svg>
           Download
         </a>
       </div>
-      
-      <div class="grid">
-      <!-- Item 3 -->
+
+      <!-- Item 4 -->
       <div class="card">
-        <div class="meta" aria-hidden="false">
+        <div class="meta">
           <span class="title">Background</span>
           <span class="subtitle">Image File</span>
         </div>
-        <a class="btn" href="assets/background.png" download="background.png" aria-label="Download">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3v12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="btn" href="assets/background.png" download>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12" stroke="white" stroke-width="1.6"/>
+            <path d="M8 11l4 4 4-4" stroke="white" stroke-width="1.6"/>
             <rect x="4" y="17" width="16" height="3" rx="1.2" fill="white" opacity="0.12"/>
           </svg>
           Download
         </a>
       </div>
+
+    </div>
+  </div>
+</body>
+</html>
